@@ -468,3 +468,137 @@ section {
 .section-title-five .content p {
   text-align: justify;
 }
+
+/* --- AJUSTES DE RESPONSIVIDADE MOBILE --- */
+
+@media (max-width: 767px) {
+  /* Header: empilhar logo e menu, centralizar */
+  header {
+    padding: 10px 0 !important;
+  }
+  header .container > div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  header nav {
+    flex-direction: column !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+  }
+  header nav a, header nav button {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 12px 10px !important;
+    font-size: 16px !important;
+    border-radius: 0 !important;
+  }
+  header .logo {
+    margin-bottom: 10px !important;
+    text-align: center !important;
+  }
+  /* Dropdown centralizado e ocupando largura total */
+  header nav > div[style*="position: relative"] > div {
+    left: 0 !important;
+    transform: none !important;
+    min-width: 100vw !important;
+    border-radius: 0 0 8px 8px !important;
+  }
+
+  /* Seções: containers e rows */
+  .container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Cards e depoimentos */
+  .testimonial-card, .single-services {
+    padding: 16px !important;
+    margin-bottom: 18px !important;
+    min-height: unset !important;
+  }
+  .testimonial-card h5, .single-services h4 {
+    font-size: 1.1rem !important;
+  }
+  .testimonial-card p, .single-services p {
+    font-size: 0.98rem !important;
+  }
+
+  /* Slider de imagens */
+  .image-slider-container {
+    max-width: 100vw !important;
+    border-radius: 8px !important;
+  }
+  .image-slider-container button {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 16px !important;
+    padding: 0 !important;
+  }
+  .image-slider-container div[style*="padding: 20px"] {
+    padding: 10px !important;
+  }
+
+  /* Footer: empilhar colunas e centralizar */
+  .footer-eleven .row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+  .footer-eleven .footer-widget, .footer-eleven .f-about {
+    align-items: center !important;
+    text-align: center !important;
+    min-width: unset !important;
+    margin-bottom: 18px !important;
+  }
+  .footer-eleven .footer-widget h5 {
+    text-align: center !important;
+  }
+  .footer-eleven .f-link li a {
+    text-align: center !important;
+  }
+  .footer-eleven .copyright-text {
+    text-align: center !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* --- STICKY FOOTER: Footer sempre no final da página --- */
+
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+footer, .footer-eleven {
+  flex-shrink: 0;
+}
