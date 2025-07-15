@@ -610,6 +610,10 @@ footer, .footer-eleven {
   }
   .hamburger-btn {
     display: block !important;
+    margin-top: 10px !important;
+  }
+  header .logo, header a[style*="position: absolute"] {
+    margin-top: 10px !important;
   }
 }
 
