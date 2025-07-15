@@ -8,13 +8,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postinstall": "npm rebuild rollup",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "homepage": "https://megahypebusiness.github.io/MegaHype-React",
   "engines": {
-    "node": ">=20"
+    "node": "20"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
