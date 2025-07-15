@@ -602,3 +602,18 @@ body {
 footer, .footer-eleven {
   flex-shrink: 0;
 }
+
+/* --- MENU HAMBÚRGUER MOBILE --- */
+@media (max-width: 767px) {
+  .desktop-menu {
+    display: none !important;
+  }
+  .hamburger-btn {
+    display: block !important;
+  }
+}
+
+@keyframes slideInRight {
+  from { right: -100vw; opacity: 0; }
+  to { right: 0; opacity: 1; }
+}

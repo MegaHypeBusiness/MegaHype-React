@@ -1153,6 +1153,21 @@ function App() {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Fecha menu mobile ao navegar
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  // Fecha menu mobile ao clicar fora
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleClick = (e) => {
+      if (e.target.closest('.mobile-menu') || e.target.closest('.hamburger-btn')) return;
+      setMobileMenuOpen(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [mobileMenuOpen]);
 
   // Verificar se o usuário já aceitou os cookies
   useEffect(() => {
@@ -1238,10 +1253,11 @@ function App() {
             position: 'relative'
           }}>
             {/* Logo */}
-            <Link to="/" onClick={e => { e.preventDefault(); navigate('/'); }} style={{
+            <Link to="/" onClick={e => { e.preventDefault(); navigate('/'); closeMobileMenu(); }} style={{
               textDecoration: 'none',
               position: 'absolute',
-              left: '0'
+              left: '0',
+              zIndex: 1101
             }}>
               <img src="/images/megahype.png" alt="MegaHype" style={{ 
                 height: '40px',
@@ -1249,8 +1265,52 @@ function App() {
               }} />
             </Link>
 
-            {/* Menu de navegação centralizado */}
-            <nav style={{
+            {/* Botão hambúrguer só no mobile */}
+            <button
+              className="hamburger-btn"
+              aria-label="Abrir menu"
+              style={{
+                display: 'none',
+                background: 'none',
+                border: 'none',
+                outline: 'none',
+                cursor: 'pointer',
+                position: 'absolute',
+                right: 0,
+                zIndex: 1101
+              }}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span style={{
+                display: 'block',
+                width: 28,
+                height: 3,
+                background: '#fff',
+                borderRadius: 2,
+                marginBottom: 6,
+                transition: 'all 0.3s',
+              }} />
+              <span style={{
+                display: 'block',
+                width: 28,
+                height: 3,
+                background: '#fff',
+                borderRadius: 2,
+                marginBottom: 6,
+                transition: 'all 0.3s',
+              }} />
+              <span style={{
+                display: 'block',
+                width: 28,
+                height: 3,
+                background: '#fff',
+                borderRadius: 2,
+                transition: 'all 0.3s',
+              }} />
+            </button>
+
+            {/* Menu de navegação - desktop */}
+            <nav className="desktop-menu" style={{
               display: 'flex',
               alignItems: 'center',
               gap: '15px'
@@ -1446,6 +1506,46 @@ function App() {
                 )}
               </div>
             </nav>
+
+            {/* Menu mobile (lateral) */}
+            {mobileMenuOpen && (
+              <div className="mobile-menu" style={{
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                width: '80vw',
+                maxWidth: 320,
+                height: '100vh',
+                background: '#111',
+                boxShadow: '-2px 0 16px rgba(0,0,0,0.25)',
+                zIndex: 2000,
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '32px 24px 24px 24px',
+                animation: 'slideInRight 0.3s',
+              }}>
+                <button
+                  aria-label="Fechar menu"
+                  onClick={closeMobileMenu}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    fontSize: 28,
+                    alignSelf: 'flex-end',
+                    marginBottom: 24,
+                    cursor: 'pointer',
+                  }}
+                >×</button>
+                <NavLink to="/" onClick={closeMobileMenu} style={{ color: '#fff', fontSize: 18, marginBottom: 18, textDecoration: 'none' }}>Início</NavLink>
+                <NavLink to="/apps" onClick={closeMobileMenu} style={{ color: '#fff', fontSize: 18, marginBottom: 18, textDecoration: 'none' }}>Softwares</NavLink>
+                <NavLink to="/contato" onClick={closeMobileMenu} style={{ color: '#fff', fontSize: 18, marginBottom: 18, textDecoration: 'none' }}>Contato</NavLink>
+                <div style={{ borderTop: '1px solid #222', margin: '18px 0' }} />
+                <div style={{ color: '#aaa', fontSize: 15, marginBottom: 10 }}>Portfólio</div>
+                <NavLink to="/portfolio-imagens" onClick={closeMobileMenu} style={{ color: '#fff', fontSize: 17, marginBottom: 12, textDecoration: 'none' }}>Imagens</NavLink>
+                <NavLink to="/portfolio-videos" onClick={closeMobileMenu} style={{ color: '#fff', fontSize: 17, marginBottom: 12, textDecoration: 'none' }}>Vídeos</NavLink>
+              </div>
+            )}
           </div>
         </div>
       </header>
