@@ -292,7 +292,9 @@ function Apps() {
               <div className="content">
                 <h6>Softwares</h6>
                 <h2 style={{ textAlign: 'center' }}>Em Breve</h2>
-                <p>Nossos utilitários exclusivos estão sendo desenvolvidos. Em breve você poderá baixar ferramentas incríveis!</p>
+                <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0 }}>
+                  Nossos utilitários exclusivos estão sendo desenvolvidos. Em breve você poderá baixar ferramentas incríveis!
+                </p>
               </div>
             </div>
           </div>
@@ -322,13 +324,7 @@ function Apps() {
               }}>
                 Desenvolvimento em Andamento
               </h3>
-              <p style={{
-                color: '#6c757d',
-                fontSize: '1.1rem',
-                lineHeight: '1.6',
-                maxWidth: '500px',
-                margin: '0 auto'
-              }}>
+              <p style={{ color: '#6c757d', fontSize: '1.1rem', lineHeight: '1.35', maxWidth: '500px', margin: '0 auto', textAlign: 'center' }}>
                 Estamos trabalhando em ferramentas exclusivas para melhorar sua experiência. 
                 Fique atento às novidades!
               </p>
@@ -783,9 +779,11 @@ function PortfolioVideos() {
                 </svg>
               </div>
               <div className="service-content">
-                <h4>Vídeos para Youtube</h4>
-                <p>
-                  Oferecemos produção de vídeos de alta qualidade para o seu canal no YouTube. Transformamos suas ideias em conteúdo visual envolvente e profissional, ajudando você a se destacar e engajar sua audiência. Seja para vlogs, gameplays ou outros tipos de conteúdo, garantimos produtos excepcionais que elevam a qualidade do seu canal e atraem mais visualizações.
+                <h4 style={{ marginBottom: 12, marginTop: 4 }}>
+                  Vídeos para Youtube
+                </h4>
+                <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0, marginTop: 6 }}>
+                  Produzimos vídeos de alta qualidade para o seu canal no YouTube. Transformamos suas ideias em conteúdo envolvente e profissional, ajudando você a se destacar e engajar sua audiência. Seja para vlogs, gameplays ou outros formatos, garantimos resultados que elevam o padrão do seu canal e aumentam suas visualizações.
                 </p>
               </div>
             </div>
@@ -801,9 +799,11 @@ function PortfolioVideos() {
                 </svg>
               </div>
               <div className="service-content">
-                <h4>Curtos</h4>
-                <p>
-                  Produzimos vídeos curtos e dinâmicos com até 59 segundos. Transformamos suas ideias em conteúdos impactantes e envolventes, ideais para engajar seu público e promover sua marca nas redes sociais. Com nossa produção, você consegue criar vídeos marcantes que aumentam a visibilidade e atraem mais atenção.
+                <h4 style={{ marginBottom: 12, marginTop: 4 }}>
+                  Curtos
+                </h4>
+                <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0, marginTop: 6 }}>
+                  Criamos vídeos curtos e dinâmicos, ideais para redes sociais. Transformamos suas ideias em conteúdos impactantes, perfeitos para engajar o público e promover sua marca. Com nossa produção, seus vídeos ganham destaque e atraem mais atenção online.
                 </p>
               </div>
             </div>
@@ -820,9 +820,11 @@ function PortfolioVideos() {
                 </svg>
               </div>
               <div className="service-content">
-                <h4>Reels</h4>
-                <p>
-                  Produzimos vídeos curtos e envolventes para Reels, com qualquer duração. Criamos conteúdos dinâmicos e cativantes que capturam a atenção e ajudam a promover sua marca de forma eficaz. Nosso objetivo é destacar sua presença digital com vídeos impactantes e inovadores.
+                <h4 style={{ marginBottom: 12, marginTop: 4 }}>
+                  Reels
+                </h4>
+                <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0, marginTop: 6 }}>
+                  Desenvolvemos vídeos envolventes para Reels, com qualquer duração. Criamos conteúdos criativos e cativantes que aumentam o alcance da sua marca e engajam o público. Destaque-se nas redes sociais com vídeos inovadores e de alto impacto visual.
                 </p>
               </div>
             </div>
@@ -837,9 +839,11 @@ function PortfolioVideos() {
                 </svg>
               </div>
               <div className="service-content">
-                <h4>Casamentos e Festas</h4>
-                <p>
-                  Somos especialistas na edição de vídeos de casamento e festas de 15 anos. Transformamos suas gravações em filmes emocionantes e memoráveis, destacando os momentos mais especiais do seu evento. Nossa equipe combina sensibilidade e técnica para criar uma narrativa envolvente, garantindo que cada detalhe e emoção sejam exibidos de forma única.
+                <h4 style={{ marginBottom: 12, marginTop: 4 }}>
+                  Casamentos e Festas
+                </h4>
+                <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0, marginTop: 6 }}>
+                  Editamos vídeos de casamentos e festas de 15 anos, transformando gravações em filmes emocionantes e memoráveis. Nossa equipe une sensibilidade e técnica para criar uma narrativa única, destacando os melhores momentos e emoções do seu evento especial.
                 </p>
               </div>
             </div>
@@ -854,9 +858,11 @@ function PortfolioVideos() {
                 </svg>
               </div>
               <div className="service-content">
-                <h4>Trailer</h4>
-                <p>
-                  Editamos trailers impactantes que destacam os pontos fortes do seu evento ou projeto. Com uma edição criativa e dinâmica, produzimos teasers envolventes que capturam a essência e despertam o interesse do seu público-alvo.
+                <h4 style={{ marginBottom: 12, marginTop: 4 }}>
+                  Trailer
+                </h4>
+                <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0, marginTop: 6 }}>
+                  Produzimos trailers criativos e impactantes para eventos ou projetos. Com edição dinâmica, destacamos os pontos fortes e despertamos o interesse do público. Nossos teasers transmitem a essência do seu conteúdo e aumentam o engajamento da sua audiência.
                 </p>
               </div>
             </div>
@@ -1109,7 +1115,7 @@ function Footer() {
               <h5 style={{color: '#fff', marginBottom: 10, textAlign: 'left'}}>Suporte</h5>
               <ul style={{listStyle: 'none', padding: 0, margin: 0, textAlign: 'left'}}>
                 <li style={{marginBottom: 8}}>
-                  <a href="#" onClick={e => { e.preventDefault(); navigate('/contato'); }} style={{color: '#fff', textDecoration: 'none', transition: 'color 0.2s', textAlign: 'left'}} onMouseOver={e => e.target.style.color='#007bff'} onMouseOut={e => e.target.style.color='#fff'}>Email</a>
+                  <Link to="/contato" style={{color: '#fff', textDecoration: 'none', transition: 'color 0.2s', textAlign: 'left'}} onMouseOver={e => e.target.style.color='#007bff'} onMouseOut={e => e.target.style.color='#fff'}>Email</Link>
                 </li>
                 <li><a href="https://drive.google.com/drive/folders/1ahZAuneOJGRtZUF0lCERxEUIc3q39Gkt?usp=sharing" target="_blank" rel="noopener noreferrer" style={{color: '#fff', textDecoration: 'none', transition: 'color 0.2s', textAlign: 'left'}} onMouseOver={e => e.target.style.color='#007bff'} onMouseOut={e => e.target.style.color='#fff'}>Media Kit</a></li>
               </ul>
