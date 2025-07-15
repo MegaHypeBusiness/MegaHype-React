@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { Routes, Route, Link, NavLink, useNavigate } from 'react-router-dom';
 import './App.css';
 import { useForm, ValidationError } from '@formspree/react';
@@ -340,6 +341,18 @@ function PortfolioImagens() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
+  // Travar/destravar scroll do body quando o modal está aberto
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+
   // Array de imagens do portfolio (você pode adicionar mais URLs de imagens)
   const images = [
     {
@@ -595,7 +608,7 @@ function PortfolioImagens() {
       </div>
 
       {/* Modal estilo Instagram Stories */}
-      {isModalOpen && !isMobile && (
+      {isModalOpen && !isMobile && ReactDOM.createPortal(
         <div style={{
           position: 'fixed',
           top: 0,
@@ -606,7 +619,7 @@ function PortfolioImagens() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 1000,
+          zIndex: 9999, // Alterado de 1000 para 2000
           padding: '20px'
         }} onClick={closeModal}>
           <div style={{
@@ -632,7 +645,7 @@ function PortfolioImagens() {
                 color: 'white',
                 fontSize: '20px',
                 cursor: 'pointer',
-                zIndex: 1001,
+                zIndex: 10001,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -670,7 +683,7 @@ function PortfolioImagens() {
                 color: 'white',
                 fontSize: '24px',
                 cursor: 'pointer',
-                zIndex: 1001,
+                zIndex: 10001,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -693,7 +706,7 @@ function PortfolioImagens() {
                 color: 'white',
                 fontSize: '24px',
                 cursor: 'pointer',
-                zIndex: 1001,
+                zIndex: 10001,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -744,7 +757,8 @@ function PortfolioImagens() {
               {currentSlide + 1} / {images.length}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
