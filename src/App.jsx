@@ -28,6 +28,7 @@ function Home({ heroRef, servicesRef }) {
   useEffect(() => {
     const scrollBtn = document.querySelector('.scroll-top');
     const onScroll = () => {
+      if (!scrollBtn) return;
       if (window.scrollY > 200) {
         scrollBtn.classList.add('show');
       } else {
@@ -553,31 +554,7 @@ function PortfolioImagens() {
               </button>
 
               {/* Indicadores */}
-              <div style={{
-                position: 'absolute',
-                bottom: '20px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                display: 'flex',
-                gap: '10px',
-                zIndex: 10
-              }}>
-                {images.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={(e) => { e.stopPropagation(); goToSlide(index); }}
-                    style={{
-                      width: '12px',
-                      height: '12px',
-                      borderRadius: '50%',
-                      border: 'none',
-                      background: currentSlide === index ? '#007bff' : 'rgba(255,255,255,0.6)',
-                      cursor: 'pointer',
-                      transition: 'background 0.3s ease'
-                    }}
-                  />
-                ))}
-              </div>
+              {/* Remover o bloco dos indicadores do slider */}
             </div>
 
             {/* Informações adicionais */}
@@ -728,13 +705,13 @@ function PortfolioImagens() {
               {images.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToSlide(index)}
+                  onClick={(e) => { e.stopPropagation(); goToSlide(index); }}
                   style={{
                     width: '10px',
                     height: '10px',
                     borderRadius: '50%',
                     border: 'none',
-                    background: currentSlide === index ? '#fff' : 'rgba(255,255,255,0.4)',
+                    background: currentSlide === index ? '#007bff' : 'rgba(255,255,255,0.4)',
                     cursor: 'pointer',
                     transition: 'background 0.3s ease'
                   }}
@@ -890,20 +867,48 @@ function PortfolioVideos() {
 // Novo componente de contato com Formspree
 function ContatoForm() {
   const [state, handleSubmit] = useForm("xldlrqbl");
+  const navigate = useNavigate();
+  // Modal de sucesso
+  useEffect(() => {
+    if (state.succeeded) {
+      const timer = setTimeout(() => {
+        navigate('/');
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [state.succeeded, navigate]);
 
   if (state.succeeded) {
     return (
       <div style={{
-        backgroundColor: '#d4edda',
-        color: '#155724',
-        padding: '20px',
-        borderRadius: '8px',
-        border: '1px solid #c3e6cb',
-        textAlign: 'center',
-        margin: '40px auto',
-        maxWidth: '500px'
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        background: 'rgba(0,0,0,0.7)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999
       }}>
-        ✅ Formulário enviado com sucesso! Em breve entraremos em contato.
+        <div style={{
+          backgroundColor: '#222',
+          color: '#fff',
+          padding: '36px 32px',
+          borderRadius: '16px',
+          border: '2px solid #00d4d7',
+          textAlign: 'center',
+          minWidth: '320px',
+          maxWidth: '90vw',
+          boxShadow: '0 8px 32px #00d4d755, 0 1.5px 8px #00ffb344',
+          position: 'relative'
+        }}>
+          <h2 style={{ fontSize: '2.2rem', marginBottom: 16, color: '#00d4d7', fontWeight: 700, letterSpacing: '-1px' }}>
+            Pedido enviado!
+          </h2>
+          <span style={{fontSize: '1.15rem'}}>✅ Formulário enviado com sucesso!<br/>Você será redirecionado...</span>
+        </div>
       </div>
     );
   }
