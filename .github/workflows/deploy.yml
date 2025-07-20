@@ -16,15 +16,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Instalar Yarn
-        run: npm install -g yarn
+          cache: 'npm'
 
       - name: Instalar dependências
-        run: yarn install
+        run: npm ci
 
       - name: Build do Vite
-        run: yarn build
+        run: npm run build
 
       - name: Deploy para o GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
