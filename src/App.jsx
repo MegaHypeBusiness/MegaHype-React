@@ -292,7 +292,6 @@ function Apps() {
           <div className="row">
             <div className="col-12">
               <div className="content">
-                <h6>Softwares</h6>
                 <h2 style={{ textAlign: 'center' }}>Em Breve</h2>
                 <p style={{ textAlign: 'left', lineHeight: '1.35', marginBottom: 0 }}>
                   Nossos utilitários exclusivos estão sendo desenvolvidos. Em breve você poderá baixar ferramentas incríveis!
@@ -920,7 +919,7 @@ function ContatoForm() {
               textAlign: 'center',
               marginBottom: 30,
               fontWeight: 600,
-              color: '#00d4d7',
+              color: 'white',
               fontSize: '2rem',
               letterSpacing: '-0.01em'
             }}>
