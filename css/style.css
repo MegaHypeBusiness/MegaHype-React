@@ -343,6 +343,8 @@ p {
   border: 2px solid var(--primary);
   border-radius: 30px;
   padding: 8px 30px;
+	displeY: none;
+
 }
 .section-title-five h2 {
   margin-bottom: 15px;
