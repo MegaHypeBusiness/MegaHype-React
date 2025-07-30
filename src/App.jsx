@@ -450,7 +450,6 @@ function PortfolioImagens() {
           <div className="row">
             <div className="col-12">
               <div className="content">
-                <h6>Portfólio</h6>
                 <h2 style={{ textAlign: 'center' }}>Imagens & Thumbnails</h2>
                 <p style={{ textAlign: 'center' }}>Exemplos de thumbnails e imagens criadas para clientes.</p>
               </div>
@@ -749,7 +748,6 @@ function PortfolioVideos() {
           <div className="row">
             <div className="col-12">
               <div className="content">
-                <h6>Portfólio</h6>
                 <h2 style={{ textAlign: 'center' }}>Vídeos</h2>
                 <p style={{ textAlign: 'center' }}>Exemplos de vídeos: Reels, Curtos, Longos, Casamentos, Trailers.</p>
               </div>
